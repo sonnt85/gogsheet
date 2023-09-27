@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -97,7 +96,7 @@ func New(oauth2_token_path, credentials_oauth_path, spreadsheetid string) (*Gshe
 	} else {
 		is.TokenOauth2_Or_Credentials = credentials_oauth_path
 		b := make([]byte, 0)
-		b, err = ioutil.ReadFile(credentials_oauth_path)
+		b, err = os.ReadFile(credentials_oauth_path)
 		if err != nil {
 			return nil, err
 		}
