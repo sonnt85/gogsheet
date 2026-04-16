@@ -331,7 +331,7 @@ func (is *Gsheet) ListSheets(sprids ...string) (map[string]int64, error) {
 	return ret, nil
 }
 
-func (is *Gsheet) GetSheetIdFromNAme(sheetName string, sprids ...string) (int64, error) {
+func (is *Gsheet) GetSheetIdFromName(sheetName string, sprids ...string) (int64, error) {
 	spreadsheetId := is.spreadsheetId
 	if len(sprids) != 0 {
 		spreadsheetId = sprids[0]
@@ -347,7 +347,12 @@ func (is *Gsheet) GetSheetIdFromNAme(sheetName string, sprids ...string) (int64,
 	}
 }
 
-func (is *Gsheet) CreaateSheet(nameSheet string, sprids ...string) (int64, error) {
+// Deprecated: Use GetSheetIdFromName instead.
+func (is *Gsheet) GetSheetIdFromNAme(sheetName string, sprids ...string) (int64, error) {
+	return is.GetSheetIdFromName(sheetName, sprids...)
+}
+
+func (is *Gsheet) CreateSheet(nameSheet string, sprids ...string) (int64, error) {
 	spreadsheetId := is.spreadsheetId
 	if len(sprids) != 0 {
 		spreadsheetId = sprids[0]
@@ -368,6 +373,11 @@ func (is *Gsheet) CreaateSheet(nameSheet string, sprids ...string) (int64, error
 		}
 	}
 	return 0, fmt.Errorf("can not found sheet after creat")
+}
+
+// Deprecated: Use CreateSheet instead.
+func (is *Gsheet) CreaateSheet(nameSheet string, sprids ...string) (int64, error) {
+	return is.CreateSheet(nameSheet, sprids...)
 }
 
 func (is *Gsheet) DeleteSheetId(sheetid int64, sprids ...string) error {
