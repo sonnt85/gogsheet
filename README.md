@@ -1,5 +1,7 @@
 # gogsheet
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/sonnt85/gogsheet.svg)](https://pkg.go.dev/github.com/sonnt85/gogsheet)
+
 A Google Sheets API client for reading, writing, and managing spreadsheet data in Go.
 
 ## Installation
