@@ -80,6 +80,10 @@ func main() {
 - `(*Gsheet).DeleteSheetId(sheetid int64, sprids ...string) error` — deletes a sheet by ID
 - `(*Gsheet).DeleteSheetFromName(sheetName string, sprids ...string) error` — deletes a sheet by name
 
+## Author
+
+**sonnt85** — [thanhson.rf@gmail.com](mailto:thanhson.rf@gmail.com)
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) for details.
